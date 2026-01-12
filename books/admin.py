@@ -5,6 +5,6 @@ from .models import Book
 # Register your models here.
 admin.site.register(Book)
 class BookAdmin(admin.ModelAdmin):
-    list_display = ['title','author','description','publised_date']
+    list_display = ['title','author','description','published_date']
     search_fields = ['title']
     
