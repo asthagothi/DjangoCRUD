@@ -5,8 +5,9 @@ class Book(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     title = models.CharField(max_length=100)
     author = models.CharField(max_length=100)
-    description = models.TextField()
+    description = models.CharField(max_length=100)
     published_date = models.DateField()
+    is_published = models.BooleanField(default=True)
 
     def __str__(self):
         return self.title
