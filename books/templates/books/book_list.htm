@@ -1,0 +1,32 @@
+{% extends 'books/base.htm' %}
+
+{% block content %}
+<h1>📚 Book List</h1>
+
+<form method="GET">
+    <input type="text" name="q" placeholder="Search books..." value="{{ request.GET.q }}">
+    <button type="submit">Search</button>
+</form>
+
+<br>
+
+<a href="{% url 'book_create' %}">➕ Add Book</a>
+
+<hr>
+
+{% if recommended_author %}
+<p><strong>Recommended Author:</strong> {{ recommended_author.author }}</p>
+{% endif %}
+
+<ul>
+    {% for book in books %}
+        <li>
+            <strong>{{ book.title }}</strong> — {{ book.author }}
+            <a href="{% url 'book_update' book.id %}">Edit</a>
+            <a href="{% url 'book_delete' book.id %}">Delete</a>
+        </li>
+    {% empty %}
+        <li>No books found.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

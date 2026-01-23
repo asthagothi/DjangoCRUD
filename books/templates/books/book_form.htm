@@ -1,0 +1,15 @@
+{% extends 'books/base.html' %}
+
+{% block content %}
+<h1>📖 Book Form</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+</form>
+
+<br>
+<a href="{% url 'book_list' %}">⬅ Back</a>
+{% endblock %}
+

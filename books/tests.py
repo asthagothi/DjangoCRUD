@@ -25,8 +25,8 @@ class BookCRUDPermissionTest(TestCase):
         self.client.login(username='testuser', password='testpass123')
 
         response = self.client.post(reverse('book_create'), {
-            'title': 'AI',
-            'author': 'OpenAI'
+            'title': 'Life',
+            'author': 'Ash'
         })
 
         self.assertTrue(Book.objects.filter(title='AI').exists())
